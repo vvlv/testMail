@@ -20,12 +20,11 @@ public class FirstTest extends WebDriverSettings {
         WebElement inKino = driver.findElementByName("clb6796617");
         inKino.click();
         //3. Выбираем день "Завтра"
-WebElement today = driver.findElementByXPath("//div[@class='input-group input-group_fixed']//div[@class='dropdown__field js-dates__toggle']");
-today.click();
-//WebElement tommorowSelect = driver.findElementByXPath("//div[@class='suggest suggest_active dropdown__suggest']//input[@data-title='Завтра']");
-//tommorowSelect.click();
+        WebElement today = driver.findElementByXPath("//div[@class='input-group input-group_fixed']//div[@class='dropdown__field js-dates__toggle']");
+        today.click();
 
-
+        WebElement todaylist = driver.findElementByXPath("//*[@data-title='Завтра']//..");
+        todaylist.click();
 
 
         //4. Вводим метро "Курская" и выбираем из предложенных вариантов Курская (кольцевая)
@@ -34,10 +33,10 @@ today.click();
         metro.sendKeys("Курская");
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
- WebElement kyrskay = driver.findElementByXPath("//div[@class='suggest js-suggest__list']//div[@class='suggest__item js-suggest__item']");
- kyrskay.click();
+        WebElement kyrskay = driver.findElementByXPath("//div[@class='suggest js-suggest__list']//div[@class='suggest__item js-suggest__item']");
+        kyrskay.click();
 
-    //5. Выставляем жанр "Драма" и "Комедия"
+        //5. Выставляем жанр "Драма" и "Комедия"
     /*    WebElement drama = driver.findElementByXPath("/html/body/div[2]/div[9]/div[4]/div/div[5]/div/form/div[1]/div[3]/div/div[1]/div[2]");
 drama.click();
 WebElement dramaone = driver.findElementByXPath("/html/body/div[2]/div[9]/div[4]/div/div[5]/div/form/div[1]/div[3]/div/div[2]/div/div[1]/div[1]/label");
@@ -46,8 +45,8 @@ WebElement comedy = driver.findElementByXPath("/html/body/div[2]/div[9]/div[4]/d
 comedy.click();
 */
         //6. Ставим чекбокс "Только сеансы в 2D"
-          WebElement onlyTwoD = driver.findElementByXPath(("//div[@class='js-module']//label[@class='checkbox__side checkbox__label']"));
-          onlyTwoD.click();
+        WebElement onlyTwoD = driver.findElementByXPath(("//div[@class='js-module']//label[@class='checkbox__side checkbox__label']"));
+        onlyTwoD.click();
         //7. Жмем "Подобрать"
         WebElement podbor = driver.findElementByName("clb6796813");
         podbor.click();
