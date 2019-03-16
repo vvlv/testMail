@@ -29,17 +29,20 @@ public class FirstTest extends WebDriverSettings {
         WebElement metro = driver.findElementByXPath("//div[@class='input-group input-group_fixed']//input[@class='input__field js-suggest__input']");
         metro.clear();
         metro.sendKeys("Курская");
-        WebElement kyrskay = driver.findElementByXPath("//div[@class='suggest js-suggest__list']//div[@class='suggest__item js-suggest__item']");
+        WebElement kyrskay = driver.findElementByXPath("//*[@data-id='68']");
         kyrskay.click();
         //5. Выставляем жанр "Драма" и "Комедия"
         WebElement genreWindowSelect = driver.findElementByXPath("//form[@class='js-module']//*[contains(@placeholder,'Все жанры')]");
 genreWindowSelect.click();
-/*
-WebElement genreDramaSelect = driver.findElementByXPath("/html/body/div[2]/div[9]/div[4]/div/div[5]/div/form/div[1]/div[3]/div/div[2]/div/div[1]/div[1]/label");
+        Thread.sleep(5000);
+
+WebElement genreDramaSelect = driver.findElementByXPath("//*[@class='checkbox__inner']/span[contains(.,'драма')]/../..");
 genreDramaSelect.click();
-WebElement genreComedySelect = driver.findElementByXPath("/html/body/div[2]/div[9]/div[4]/div/div[5]/div/form/div[1]/div[3]/div/div[2]/div/div[1]/div[2]/label");
+        Thread.sleep(5000);
+
+WebElement genreComedySelect = driver.findElementByXPath("//*[@class='checkbox__inner']/span[contains(.,'комедия')]/../..");
 genreComedySelect.click();
-*/
+
         //6. Ставим чекбокс "Только сеансы в 2D"
         WebElement onlyTwoD = driver.findElementByXPath(("//div[@class='js-module']//label[@class='checkbox__side checkbox__label']"));
         onlyTwoD.click();
