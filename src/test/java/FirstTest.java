@@ -1,7 +1,10 @@
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,52 +12,33 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
-public class FirstTest extends WebDriverSettings {
+public class FirstTest extends TestBaseSetup {
+
+
+    private WebDriver driver;
+
+
+    @Before
+    public void setUp() {
+        driver = getDriver();
+    }
+
+
+
     @Test
-    public void firstTest() throws InterruptedException {
-        //1. Перейти на https://afisha.mail.ru/
-        driver.get("https://kino.mail.ru");
-        //2. В блоке под поиском выбираем "Сходить в кино"
-        WebElement inKino = driver.findElementByName("clb6796617");
-        inKino.click();
+    public void testMail  () throws InterruptedException {
+        Locators test =  new Locators(driver);
+        test.goMail();
+        test.goKino();
         Thread.sleep(5000);
-        //3. Выбираем день "Завтра"
-        WebElement today = driver.findElementByXPath("//div[@class='input-group input-group_fixed']//div[@class='dropdown__field js-dates__toggle']");
-        today.click();
-        WebElement todaylist = driver.findElementByXPath("//*[@data-title='Завтра']//..");
-        todaylist.click();
-        //4. Вводим метро "Курская" и выбираем из предложенных вариантов Курская (кольцевая)
-        WebElement metro = driver.findElementByXPath("//div[@class='input-group input-group_fixed']//input[@class='input__field js-suggest__input']");
-        metro.clear();
-        metro.sendKeys("Курская");
-        WebElement kyrskay = driver.findElementByXPath("//*[@data-id='68']");
-        kyrskay.click();
-        //5. Выставляем жанр "Драма" и "Комедия"
-        WebElement genreWindowSelect = driver.findElementByXPath("//form[@class='js-module']//*[contains(@placeholder,'Все жанры')]");
-genreWindowSelect.click();
-        Thread.sleep(5000);
-
-WebElement genreDramaSelect = driver.findElementByXPath("//*[@class='checkbox__inner']/span[contains(.,'драма')]/../..");
-genreDramaSelect.click();
-        Thread.sleep(5000);
-
-WebElement genreComedySelect = driver.findElementByXPath("//*[@class='checkbox__inner']/span[contains(.,'комедия')]/../..");
-genreComedySelect.click();
-
-        //6. Ставим чекбокс "Только сеансы в 2D"
-        WebElement onlyTwoD = driver.findElementByXPath(("//div[@class='js-module']//label[@class='checkbox__side checkbox__label']"));
-        onlyTwoD.click();
-        //7. Жмем "Подобрать"
-        WebElement podbor = driver.findElementByName("clb6796813");
-        podbor.click();
-        //8. Убедиться что открыта страница "Киноафиша Москвы" и на форме выставлены заданные параметры.
-
+        test.goTomorrow();
+        test.goMetro();
+        test.goGenre();
+        test.goCheckbox();
+        test.goSelection();
+        //test.close();
     }
 }
-
-
-//Все действия необходимо логировать.
-
-//Тест
