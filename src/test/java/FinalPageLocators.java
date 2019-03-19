@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -15,7 +17,8 @@ public class FinalPageLocators extends TestBaseSetup{
     //2. Выбран день "Завтра"
 
     //3. Выставлена станция "Курская" кольцевой линии
-
+@FindBy (xpath = "//div[@class='input-group__item']//*[@data-id='68']")
+private WebDriver metrochech;
     //4. Выставлен жанр "Драма"
 
     //5. Выставлен жанр "Комедия"
@@ -45,7 +48,12 @@ public class FinalPageLocators extends TestBaseSetup{
     //Выбран день "Завтра"
 
     //3. Выставлена станция "Курская" кольцевой линии
+Boolean meto = driver.findElements(By.xpath("//div[@class='input-group__item']//*[@data-id='68']")).size() > 0;
+    public void metrometro (){
 
+        if (meto==true) {System.out.println("METRO true");}
+        else {System.out.println(" METRO false");}
+    }
     //4. Выставлен жанр "Драма"
     Boolean isPresent = driver.findElements(By.xpath("//div[@class='checkbox checkbox_colored margin_right_20']//input[@checked='checked']")).size() > 0;
 

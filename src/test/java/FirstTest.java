@@ -10,7 +10,7 @@ public class FirstTest extends TestBaseSetup {
         test.goMail();
         test.goKino();
         test.goTomorrow();
-        test.goMetro();
+      //  test.goMetro();
         test.goGenre();
         test.goCheckbox();
         test.goSelection();
@@ -20,6 +20,7 @@ public class FirstTest extends TestBaseSetup {
     public void checkTestMail (){
         FinalPageLocators check = new FinalPageLocators(driver);
       //  check.titleCheck();
-        check.twoIsD();
+        //check.twoIsD();
+        check.metrometro();
     }
 }
