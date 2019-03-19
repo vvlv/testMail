@@ -37,28 +37,24 @@ public class Locators  {
     private WebElement podbor;
 
     public Locators(WebDriver driver) {
-
         PageFactory.initElements(driver, this);
-        this.driver = driver;
-    }
+        this.driver = driver;   }
 
 
     public void goMail (){
         driver.get(url);
     } //1- Перейти на майл ру
 
-    public void goKino () {
-        inKino.click();} //2- В блоке под поиском выбираем "Сходить в кино"
+    public void goKino () throws InterruptedException {
+        inKino.click(); Thread.sleep(1000);} //2- В блоке под поиском выбираем "Сходить в кино"
     public void goTomorrow () {today.click(); todaylist.click();}//3. Выбираем день "Завтра"
     public void goMetro () {metro.clear();
         metro.sendKeys("Курская");        kyrskay.click(); }//4. Вводим метро "Курская" и выбираем из предложенных вариантов Курская (кольцевая)
     public void goGenre () throws InterruptedException {
         genreWindowSelect.click();
-        Thread.sleep(2000);
-
+        Thread.sleep(1000);
         genreDramaSelect.click();
-        Thread.sleep(2000);
-
+        Thread.sleep(1000);
         genreComedySelect.click();
 
     }//5. Выставляем жанр "Драма" и "Комедия"
@@ -73,5 +69,3 @@ public class Locators  {
         driver.quit();//закрытие браузера
     }
 }
-
-
