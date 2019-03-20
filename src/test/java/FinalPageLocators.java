@@ -1,8 +1,13 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.Logs;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.logging.Logger;
 
 import static org.junit.Assert.assertEquals;
 
@@ -37,6 +42,9 @@ public class FinalPageLocators extends TestBaseSetup{
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+  // LOGS    LOGS    LOGS   LOGS   LOGS
+    Logs logs = driver.manage().logs();
+    LogEntries logEntries = logs.get(LogType.DRIVER);
 
     //  1.
     //Сверяем тайтл

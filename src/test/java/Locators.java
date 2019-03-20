@@ -65,7 +65,5 @@ public class Locators  {
     public void goSelection () {
         podbor.click();
     }//7. Жмем "Подобрать"
-    public void close () {
-        driver.quit();//закрытие браузера
-    }
+
 }

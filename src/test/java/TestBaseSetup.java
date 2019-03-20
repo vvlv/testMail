@@ -1,3 +1,4 @@
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,5 +15,9 @@ public class TestBaseSetup {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+    }
+    @AfterClass
+    public static void close () {
+        driver.quit();//закрытие браузера
     }
 }
