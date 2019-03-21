@@ -1,10 +1,12 @@
+package KinoMailRuTest;
+
 import org.junit.Test;
 
-public class FirstTest extends TestBaseSetup {
+public class KinoTests extends WDSetup {
 
     @Test
     public void testMail() throws InterruptedException {
-        Locators test = new Locators(driver);
+        KinoMailPage test = new KinoMailPage(WDSetup.driver);
         test.goMail();
         test.goKino();
         test.goTomorrow();
@@ -12,11 +14,10 @@ public class FirstTest extends TestBaseSetup {
         test.goGenre();
         test.goCheckbox();
         test.goSelection();
-        //test.close();
     }
     @Test
     public void checkTestMail (){
-        FinalPageLocators check = new FinalPageLocators(driver);
+        KinoMailSecondPage check = new KinoMailSecondPage(WDSetup.driver);
         check.titleCheck();
         check.twoIsD();
         check.metrometro();

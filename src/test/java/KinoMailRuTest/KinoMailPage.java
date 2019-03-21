@@ -1,9 +1,11 @@
+package KinoMailRuTest;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Locators  {
+public class KinoMailPage {
 
     private WebDriver driver;
 
@@ -36,34 +38,38 @@ public class Locators  {
     @FindBy(name = "clb6796813")
     private WebElement podbor;
 
-    public Locators(WebDriver driver) {
+    public KinoMailPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;   }
 
-
+    //1- Перейти на майл ру
     public void goMail (){
         driver.get(url);
-    } //1- Перейти на майл ру
-
+    }
+    //2- В блоке под поиском выбираем "Сходить в кино"
     public void goKino () throws InterruptedException {
-        inKino.click(); Thread.sleep(1000);} //2- В блоке под поиском выбираем "Сходить в кино"
-    public void goTomorrow () {today.click(); todaylist.click();}//3. Выбираем день "Завтра"
+        inKino.click(); Thread.sleep(1000);}
+    //3. Выбираем день "Завтра"
+    public void goTomorrow () {today.click(); todaylist.click();}
+    //4. Вводим метро "Курская" и выбираем из предложенных вариантов Курская (кольцевая)
     public void goMetro () {metro.clear();
-        metro.sendKeys("Курская");        kyrskay.click(); }//4. Вводим метро "Курская" и выбираем из предложенных вариантов Курская (кольцевая)
+        metro.sendKeys("Курская");
+        kyrskay.click(); }
+    //5. Выставляем жанр "Драма" и "Комедия"
     public void goGenre () throws InterruptedException {
         genreWindowSelect.click();
         Thread.sleep(1000);
         genreDramaSelect.click();
         Thread.sleep(1000);
         genreComedySelect.click();
-
-    }//5. Выставляем жанр "Драма" и "Комедия"
-    public void goCheckbox ()
-    {
+    }
+    //6. Ставим чекбокс "Только сеансы в 2D"
+    public void goCheckbox ()    {
         onlyTwoD.click();
-    }//6. Ставим чекбокс "Только сеансы в 2D"
+    }
+    //7. Жмем "Подобрать"
     public void goSelection () {
         podbor.click();
-    }//7. Жмем "Подобрать"
+    }
 
 }

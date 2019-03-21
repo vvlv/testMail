@@ -1,37 +1,39 @@
+package KinoMailRuTest;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.logging.Logger;
 
-public class FinalPageLocators extends TestBaseSetup {
+public class KinoMailSecondPage extends WDSetup {
 
     //   Проверки на:
     //1. Находимся на нужной странице =  "Киноафиша Москвы - Mail.ru Кино"
     private String title = "Mail.ru Кино — фильмы, сериалы и телешоу из самых популярных онлайн-кинотеатров";
-    private String actualTitle = driver.getTitle();
+    private String actualTitle = WDSetup.driver.getTitle();
     private String expectedTitle = title;
     private boolean titleproverka = actualTitle.equals(expectedTitle);
     //2. Выбран день "Завтра"
-    private String tomorrowtwo = driver.findElement(By.xpath("//div[(@class='input-group__item')]//div[@class='dropdown__text js-dates__title']")).getText();
+    private String tomorrowtwo = WDSetup.driver.findElement(By.xpath("//div[(@class='input-group__item')]//div[@class='dropdown__text js-dates__title']")).getText();
     private boolean expectedDayTomorrow = tomorrowtwo.equals("Завтра");
     //3. Выставлена станция "Курская" кольцевой линии
     private String metroXpathCheck = "//div[@class='input-group__item']//*[@data-id='68']";
-    private Boolean meto = driver.findElements(By.xpath(metroXpathCheck)).size() > 0;
+    private Boolean meto = WDSetup.driver.findElements(By.xpath(metroXpathCheck)).size() > 0;
     //4. Выставлен жанр "Драма"
-    private Boolean testOne = driver.findElements(By.xpath("//div[@class='input__tags-inner js-filter_selected_list']//*[@data-value='1']")).size() > 0;
+    private Boolean testOne = WDSetup.driver.findElements(By.xpath("//div[@class='input__tags-inner js-filter_selected_list']//*[@data-value='1']")).size() > 0;
     //5. Выставлен жанр "Комедия"
-    private Boolean testTwo = driver.findElements(By.xpath("//div[@class='input__tags-inner js-filter_selected_list']//*[@data-value='3']")).size() > 0;
+    private Boolean testTwo = WDSetup.driver.findElements(By.xpath("//div[@class='input__tags-inner js-filter_selected_list']//*[@data-value='3']")).size() > 0;
     //6. Выставлен чекбокс "Только сеансы в 2D"
-    private Boolean twoIsDCheck = driver.findElements(By.xpath("//div[@class='checkbox checkbox_colored margin_right_20']//input[@checked='checked']")).size() > 0;
+    private Boolean twoIsDCheck = WDSetup.driver.findElements(By.xpath("//div[@class='checkbox checkbox_colored margin_right_20']//input[@checked='checked']")).size() > 0;
 
-    public FinalPageLocators(WebDriver driver) {
+    public KinoMailSecondPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     // LOGS    LOGS    LOGS   LOGS   LOGS
-    private static Logger log = Logger.getLogger(FinalPageLocators.class.getName());
+    private static Logger log = Logger.getLogger(KinoMailSecondPage.class.getName());
 
     //  1. Сверяем тайтл
     public void titleCheck() {
