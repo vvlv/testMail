@@ -50,7 +50,9 @@ public class KinoMailPage {
     public void goKino () throws InterruptedException {
         inKino.click(); Thread.sleep(1000);}
     //3. Выбираем день "Завтра"
-    public void goTomorrow () {today.click(); todaylist.click();}
+    public void goTomorrow () {
+        today.click();
+        todaylist.click();}
     //4. Вводим метро "Курская" и выбираем из предложенных вариантов Курская (кольцевая)
     public void goMetro () {metro.clear();
         metro.sendKeys("Курская");
